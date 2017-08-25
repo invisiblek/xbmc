@@ -748,6 +748,9 @@ bool CVideoPlayer::OpenFile(const CFileItem& file, const CPlayerOptions &options
 
   if (IsRunning())
   {
+    if (m_omxplayer_mode)
+      CloseFile();
+
     CDVDMsgOpenFile::FileParams params;
     params.m_item = file;
     params.m_options = options;
