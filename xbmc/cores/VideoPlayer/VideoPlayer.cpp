@@ -746,11 +746,11 @@ bool CVideoPlayer::OpenFile(const CFileItem& file, const CPlayerOptions &options
 {
   CLog::Log(LOGNOTICE, "VideoPlayer::OpenFile: %s", CURL::GetRedacted(file.GetPath()).c_str());
 
+  if (m_omxplayer_mode && IsRunning())
+    CloseFile();
+
   if (IsRunning())
   {
-    if (m_omxplayer_mode)
-      CloseFile();
-
     CDVDMsgOpenFile::FileParams params;
     params.m_item = file;
     params.m_options = options;
