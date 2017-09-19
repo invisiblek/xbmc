@@ -36,7 +36,7 @@ endif()
 
 if(CORE_SYSTEM_NAME STREQUAL linux OR CORE_SYSTEM_NAME STREQUAL freebsd)
   if(CORE_PLATFORM_NAME STREQUAL rbpi)
-    list(APPEND ffmpeg_conf --cpu=${CPU} --disable-vaapi --disable-vdpau)
+    list(APPEND ffmpeg_conf --cpu=${CPU} --disable-vaapi --disable-vdpau --enable-mmal --enable-omx-rpi)
   else()
     list(APPEND ffmpeg_conf --enable-vdpau --enable-vaapi --enable-pic)
   endif()
