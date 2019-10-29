@@ -1,5 +1,5 @@
 include ../../Makefile.include
-DEPS= ../../Makefile.include 01-disable-test.patch lconv.patch fix-aarch64_atomics.patch Makefile
+DEPS= ../../Makefile.include 01-disable-test.patch lconv.patch fix-aarch64_atomics.patch intl.patch Makefile
 
 # lib name, version
 LIBNAME=fontconfig
@@ -23,6 +23,7 @@ $(PLATFORM): $(TARBALLS_LOCATION)/$(ARCHIVE) $(DEPS)
 	cd $(PLATFORM); $(ARCHIVE_TOOL) $(ARCHIVE_TOOL_FLAGS) $(TARBALLS_LOCATION)/$(ARCHIVE)
 	cd $(PLATFORM); patch -p1 -i ../01-disable-test.patch
 	cd $(PLATFORM); patch -p1 -i ../lconv.patch
+	cd $(PLATFORM); patch -p1 -i ../intl.patch
 	cd $(PLATFORM); patch -p1 -i ../fix-aarch64_atomics.patch
 	cd $(PLATFORM); $(AUTORECONF) -vif
 	cd $(PLATFORM); $(CONFIGURE)

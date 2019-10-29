@@ -1,0 +1,26 @@
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 7b414df..c3557f9 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -167,7 +167,7 @@ lib_LTLIBRARIES = libfontconfig.la
+ libfontconfig_la_LDFLAGS =			\
+ 	-version-info @LIBT_VERSION_INFO@ -no-undefined $(export_symbols)
+ 
+-libfontconfig_la_LIBADD = $(ICONV_LIBS) $(FREETYPE_LIBS) $(LIBXML2_LIBS) $(EXPAT_LIBS) $(UUID_LIBS) $(LTLIBINTL)
++libfontconfig_la_LIBADD = $(ICONV_LIBS) $(FREETYPE_LIBS) $(LIBXML2_LIBS) $(EXPAT_LIBS) $(UUID_LIBS) $(LTLIBINTL) -lintl
+ 
+ libfontconfig_la_DEPENDENCIES = $(fontconfig_def_dependency)
+ 
+diff --git a/src/Makefile.in b/src/Makefile.in
+index 2a1cec3..7ded84e 100644
+--- a/src/Makefile.in
++++ b/src/Makefile.in
+@@ -519,7 +519,7 @@ lib_LTLIBRARIES = libfontconfig.la
+ libfontconfig_la_LDFLAGS = \
+ 	-version-info @LIBT_VERSION_INFO@ -no-undefined $(export_symbols)
+ 
+-libfontconfig_la_LIBADD = $(ICONV_LIBS) $(FREETYPE_LIBS) $(LIBXML2_LIBS) $(EXPAT_LIBS) $(UUID_LIBS) $(LTLIBINTL)
++libfontconfig_la_LIBADD = $(ICONV_LIBS) $(FREETYPE_LIBS) $(LIBXML2_LIBS) $(EXPAT_LIBS) $(UUID_LIBS) $(LTLIBINTL) -lintl
+ libfontconfig_la_DEPENDENCIES = $(fontconfig_def_dependency)
+ PUBLIC_FILES = \
+ 	$(top_srcdir)/fontconfig/fontconfig.h \
